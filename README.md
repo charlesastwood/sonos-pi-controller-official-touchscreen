@@ -31,7 +31,7 @@ The sonos-pi-controller includes the following features:
 * Ability to view song queue, select a song in queue & adjust playback mode (normal, shuffle, repeat)
   * Replace select room icon with a queue icon
   * Room selection will be available via tapping on room name.
-  
+
 ## Installation & Requirements
 ### You will need the following hardware:
 
@@ -60,9 +60,9 @@ The sonos-pi-controller includes the following features:
     ```
 * Build base Dockerfile image with pygame, pip, and SDL 1.2 support
   ```bash
-  docker build -t villarrealized/debian-pygame-base -f Dockerfile.base .
+  docker build -t containers/debian-pygame-base -f Dockerfile.base .
   ```
-* Build main Dockerfile image with 
+* Build main Dockerfile image with
   ```bash
   docker-compose build
   ```
@@ -87,4 +87,3 @@ If your touchscreen is not calibrated correctly, try running the calibration pro
   ```bash
   sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_calibrate
   ```
-
