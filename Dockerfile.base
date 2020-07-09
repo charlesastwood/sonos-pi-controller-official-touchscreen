@@ -1,7 +1,13 @@
 FROM arm32v7/debian:buster
 
-# python3-pygame - package does not exist on this platform at the time, so we use python2.7 version
-RUN apt-get update && apt-get install -y python-pygame python-pip
+# Update apt
+RUN apt-get update
+
+# Install Python 2.7 versions of pygame and pip
+##RUN apt-get install -y python-pygame python-pip
+
+# Install Python 3 versions of pygame and pip
+RUN apt-get install -y python3-pygame python3-pip
 
 ##### SDL 2.x and SDL 1.2.15-10 have issues with the touchscreen...must force SDL1.2
 ##### otherwise touchscreen will provide wonky values
