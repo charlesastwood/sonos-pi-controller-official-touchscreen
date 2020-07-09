@@ -1,4 +1,4 @@
-FROM arm32v7/debian:stretch
+FROM arm32v7/debian:buster
 
 # need git to use custom git repo until SoCo fixes breaking Sonos API change issues in v0.16
 RUN apt-get update && apt-get install -y git
