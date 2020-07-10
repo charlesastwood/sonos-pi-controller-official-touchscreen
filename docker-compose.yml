@@ -4,7 +4,7 @@ services:
     container_name: sonos-pi-controller
     image: rparenton/sonos-pi-controller
     privileged: true
-    network_mode: 'host'
+    network_mode: host
     build: .
     env_file: .env
     volumes:
