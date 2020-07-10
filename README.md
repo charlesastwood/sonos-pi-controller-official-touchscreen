@@ -27,11 +27,6 @@ The sonos-pi-controller includes the following features:
 * Mute and unmute
 * Automatic backlight shutoff after period of inactivity
 
-## Planned Upgrades
-* Ability to view song queue, select a song in queue, & adjust playback mode (normal, shuffle, repeat)
-  * Replace select room icon with a queue icon
-  * Room selection will be available via tapping on room name.
-
 ## Installation & Requirements
 ### You will need the following hardware:
 
