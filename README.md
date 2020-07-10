@@ -59,7 +59,7 @@ The sonos-pi-controller includes the following features:
     ```
 * Build the base Dockerfile image with pygame, pip, and SDL 1.2 support:
   ```bash
-  docker build -t containers/debian-pygame-base -f Dockerfile.base .
+  docker build -t rparenton/debian-pygame-base -f Dockerfile.base .
   ```
 * Build main Dockerfile image with:
   ```bash

@@ -1,4 +1,4 @@
-FROM containers/debian-pygame-base
+FROM rparenton/debian-pygame-base
 RUN mkdir -p /usr/src/app
 COPY requirements.txt /usr/src/app
 WORKDIR /usr/src/app

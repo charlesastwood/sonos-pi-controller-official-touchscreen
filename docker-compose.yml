@@ -6,7 +6,7 @@ services:
     privileged: true
     network_mode: 'host'
     build: .
-    image: containers/sonos-pi-controller
+    image: rparenton/sonos-pi-controller
     env_file: .env
     volumes:
       - ./:/usr/src/app
