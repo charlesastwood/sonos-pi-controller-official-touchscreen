@@ -6,4 +6,4 @@ WORKDIR /usr/src/app
 RUN pip3 install -r requirements.txt
 COPY . /usr/src/app
 
-CMD [ "python", "main.py"]
+CMD [ "python3", "main.py"]
