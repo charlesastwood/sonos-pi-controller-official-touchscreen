@@ -2,10 +2,10 @@ version: "3.7"
 services:
   app:
     container_name: sonos-pi-controller
+    image: rparenton/sonos-pi-controller
     privileged: true
     network_mode: 'host'
     build: .
-    image: rparenton/sonos-pi-controller
     env_file: .env
     volumes:
       - ./:/usr/src/app
