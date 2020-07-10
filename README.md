@@ -41,7 +41,7 @@ The sonos-pi-controller includes the following features:
 
 ### Installation
 
-* Flash your Raspberry Pi with the latest Raspbian Lite (right now it's *buster*)
+* Flash your Raspberry Pi with the latest Raspberry Pi OS Lite (right now it's *buster*)
 * Login to your Pi via SSH and install docker, docker-compose, and git.
   * [Here](https://www.bargelt.com/setting-up-a-headless-raspberry-pi-with-ssh-docker-docker-compose-git/) is a very helpful guide if you need help.
 * Attach your touchscreen to the Pi, reboot, and run the [installer script from Adafruit](https://learn.adafruit.com/adafruit-pitft-3-dot-5-touch-screen-for-raspberry-pi/easy-install-2) to setup your touchscreen.
@@ -79,8 +79,6 @@ The sonos-pi-controller includes the following features:
 ![Raspberry Pi Controller mounted to wall](./resources/screenshots/controller-mounted.jpg)
 
 ## Troubleshooting
-If you have any issues getting started, please reach out and I will try to help.
-
 If your touchscreen is not calibrated correctly, try running the calibration program:
   ```bash
   sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_calibrate
