@@ -1,5 +1,5 @@
 # sonos-pi-controller
-A touch screen (Adafruit PiTFT 3.5") Sonos controller for Raspberry Pi. Runs in a docker container.
+A touch screen (Adafruit PiTFT Plus 3.5") Sonos controller for Raspberry Pi. Runs in a Docker container.
 
 This controller relies upon the [SoCo library](https://github.com/SoCo/SoCo) for communicating with [Sonos speakers](https://www.sonos.com/) and the [pygame library](https://github.com/pygame/pygame) for the UI.
 
