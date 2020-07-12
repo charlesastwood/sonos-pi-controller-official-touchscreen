@@ -52,16 +52,11 @@ The sonos-pi-controller includes the following features:
     dtoverlay=pitft35-resistive,rotate=0,speed=32000000,fps=60
     # --- end adafruit-pitft-helper Tue 30 Oct 10:12:27 MDT 2018 ---
     ```
-* Build the base Dockerfile image with pygame, pip, and SDL 1.2 support:
+* Copy `sample.env` to `.env` and adjust `BACKLIGHT_TIMEOUT` to your preference. The default is 30 seconds.
+* Start the container with:
   ```bash
-  docker build -t rparenton/debian-pygame-base -f Dockerfile.base .
+  docker-compose up -d
   ```
-* Build main Dockerfile image with:
-  ```bash
-  docker-compose build
-  ```
-* Copy `sample.env` to `.env` and adjust `BACKLIGHT_TIMEOUT` to your preference. Default is 30 seconds.
-* Run `docker-compose up -d` and enjoy your Raspberry Pi Sonos Controller!
 
 ## Screenshots
 ![Now Playing](./resources/screenshots/now_playing.png)
