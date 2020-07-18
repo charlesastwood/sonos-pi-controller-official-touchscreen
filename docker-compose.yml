@@ -1,4 +1,8 @@
 version: "3.6"
+
+volumes:
+  sonos-pi-controller:
+
 services:
   app:
     container_name: sonos-pi-controller
@@ -7,7 +11,7 @@ services:
     build: .
     env_file: .env
     volumes:
-      - ./:/usr/src/app
+      - sonos-pi-controller:/usr/src/app
       - '/sys/class/backlight:/sys/class/backlight'
       - '/etc/pointercal:/etc/pointercal'
       - '/etc/ts.conf:/etc/ts.conf'
