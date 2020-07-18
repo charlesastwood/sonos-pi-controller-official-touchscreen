@@ -1,16 +1,16 @@
 FROM debian:buster
 
-# Update apt
-RUN apt-get update
+# Install the required packages using Python 2.7 versions
+##RUN apt-get update && apt-get install -y \
+##        libsdl1.2debian \
+##        python-pip \
+##        python-pygame
 
-# Install Python 2.7 versions of the required Python packages
-##RUN apt-get install -y python-pip python-pygame
-
-# Install Python 3 versions of the required Python packages
-RUN apt-get install -y python3-pip python3-pygame
-
-# Install SDL 1.2
-RUN apt-get install -y libsdl1.2debian
+# Install the required packages using Python 3 versions
+RUN apt-get update && apt-get install -y \
+        libsdl1.2debian \
+        python3-pip \
+        python3-pygame
 
 # Setup the container environment
 RUN mkdir -p /usr/src/app
