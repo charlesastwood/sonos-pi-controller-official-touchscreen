@@ -1,5 +1,6 @@
 import pygame
 
+
 class Window:
     """ Everything is drawn to the window. Only need 1 instance. Should never change."""
     # A Scene is a View that fills the entire screen and can be changed
@@ -14,9 +15,5 @@ class Window:
     def update():
         if Window.scene is not None:
             Window.scene.draw()
-            Window.surface.blit(Window.scene.surface, (0,0))
+            Window.surface.blit(Window.scene.surface, (0, 0))
             pygame.display.update()
-    
-        
-
-        

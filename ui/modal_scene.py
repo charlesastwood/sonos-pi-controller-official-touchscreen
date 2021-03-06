@@ -14,13 +14,13 @@ class ModalScene(Scene):
 
         self.background_color = colors.MODAL
 
-         # Title label   
-        self.title_label = Label(Rect(50,20,220,40),title,40,colors.WHITE)
+        # Title label
+        self.title_label = Label(Rect(50, 20, 220, 40), title, 40, colors.WHITE)
         self.add_child(self.title_label)
 
-        ##### Close Button #####
-        icon_close_image = Image('icon_close',filename='icon_close.png')
-        self.close_button = Button(Rect(20,20,30,30),image=icon_close_image)        
+        # Close Button #
+        icon_close_image = Image('icon_close', filename='icon_close.png')
+        self.close_button = Button(Rect(20, 20, 30, 30), image=icon_close_image)
         self.close_button.on_tapped.connect(self.close)
         self.add_child(self.close_button)
 

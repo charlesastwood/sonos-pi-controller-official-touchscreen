@@ -1,6 +1,7 @@
 from view import View
 from window import Window
 
+
 class Scene(View):
     """A view that takes up the entire window content area."""
 

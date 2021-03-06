@@ -1,12 +1,14 @@
 import pygame
 from callback_signal import Signal
 
+
 class View(object):
     """A rectangular portion of the window.
     Views may have zero or more child views contained within it. 
     """
-    def __init__(self, frame = None):
-        
+
+    def __init__(self, frame=None):
+
         self.frame = frame
         self.surface = None
 
@@ -19,16 +21,16 @@ class View(object):
 
         self.on_mouse_up = Signal()
         self.on_parented = Signal()
-    
+
     @property
     def width(self):
-        if self.surface is None: 
+        if self.surface is None:
             return None
         return self.surface.get_width()
 
     @property
     def height(self):
-        if self.surface is None: 
+        if self.surface is None:
             return None
         return self.surface.get_height()
 
@@ -44,9 +46,9 @@ class View(object):
     def draw(self):
         """Do not call directly."""
 
-        if self.hidden or self.surface is None:                        
+        if self.hidden or self.surface is None:
             return False
-            
+
         if self.background_color is not None:
             self.surface.fill(self.background_color)
 
@@ -59,7 +61,7 @@ class View(object):
     def center(self):
         if self.parent is not None:
             self.frame.center = (self.parent.frame.w // 2, self.parent.frame.h // 2)
-    
+
     def add_child(self, child):
         assert child is not None
         self.children.append(child)
@@ -77,23 +79,23 @@ class View(object):
             self.parent.remove_child(self)
 
     def popToMainScene(self):
-        ''' Remove all the views until top scene is the current view '''
+        """ Remove all the views until top scene is the current view """
         current_view = self
         while current_view.parent:
             current_view.remove()
             current_view = current_view.parent
-    
+
     def parented(self):
-        ''' Notify a view when it has been assigned a parent'''
+        """ Notify a view when it has been assigned a parent"""
         self.on_parented()
 
     def to_parent(self, point):
-        ''' Convert child coordinates to parent's coordinates '''
+        """ Convert child coordinates to parent's coordinates """
         return (point[0] + self.frame.topleft[0],
-            point[1] + self.frame.topleft[1])
+                point[1] + self.frame.topleft[1])
 
     def to_window(self, point):
-        ''' convert point to a window's point '''
+        """ convert point to a window's point """
         curr = self
         while curr:
             point = curr.to_parent(point)
@@ -108,25 +110,19 @@ class View(object):
         """Find the view under point given, if any."""
         if self.hidden or not self._enabled:
             return None
-        
+
         # Use pygame collidepoint method for bounding box detection
         if not self.frame.collidepoint(point):
-            return None        
-        
-        # Find the local coordinates of tap 
+            return None
+
+        # Find the local coordinates of tap
         local_point = (point[0] - self.frame.topleft[0], point[1] - self.frame.topleft[1])
 
         # print "Local point: {}".format(local_point)
-        
+
         # Walk through children, starting with top most layer
         for child in reversed(self.children):
             hit_view = child.hit(local_point)
-            if hit_view is not None:                
+            if hit_view is not None:
                 return hit_view
         return self
-        
-
-
-
-
-        

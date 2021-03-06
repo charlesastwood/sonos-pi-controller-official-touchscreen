@@ -19,7 +19,6 @@ import ui.colors as colors
 
 
 class SelectMusic(ModalScene):
-
     CATEGORIES = ['Artists', 'Albums', 'Genres', 'Playlists', 'Favorites']
 
     def __init__(self, sonos):
@@ -34,25 +33,24 @@ class SelectMusic(ModalScene):
     def create_library_list(self):
         y = 80
         for category in SelectMusic.CATEGORIES:
-            library_option_button = Button(Rect(40,y,240,40), 34, Label.LEFT, text=category)
+            library_option_button = Button(Rect(40, y, 240, 40), 34, Label.LEFT, text=category)
             library_option_button.on_tapped.connect(self.select_library_option)
-            self.add_child(library_option_button)            
+            self.add_child(library_option_button)
             y += 80
 
     def select_library_option(self, button):
-        option = button.label.text        
+        option = button.label.text
         scene = None
 
         if option == 'Artists':
-            scene = SelectArtist(self.sonos)            
+            scene = SelectArtist(self.sonos)
         elif option == 'Albums':
-            scene = SelectAlbum(self.sonos)            
+            scene = SelectAlbum(self.sonos)
         elif option == 'Genres':
-            scene = SelectGenre(self.sonos)            
+            scene = SelectGenre(self.sonos)
         elif option == 'Playlists':
-            scene = SelectPlaylist(self.sonos)            
+            scene = SelectPlaylist(self.sonos)
         elif option == 'Favorites':
             scene = SelectFavorite(self.sonos)
 
         if scene is not None: self.add_child(scene)
-            

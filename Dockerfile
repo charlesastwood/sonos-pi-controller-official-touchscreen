@@ -1,22 +1,5 @@
 FROM debian:buster
 
-### libsdl 1.2 included in Debian Buster has issues with the touch screen.
-### Force libsdl 1.2 from Debian Wheezy
-
-# Enable Wheezy package sources
-RUN echo "deb http://archive.debian.org/debian/ wheezy main" > /etc/apt/sources.list.d/wheezy.list
-
-# Allow only libsdl1.2debian from Wheezy
-RUN printf "Package: *\n\
-Pin: release n=wheezy\n\
-Pin-Priority: 1\n\
-\n\
-Package: libsdl1.2debian\n\
-Pin: release n=wheezy\n\
-Pin-Priority: 900\n\
-" > /etc/apt/preferences.d/libsdl
-###
-
 # Install the required packages using Python 2.7 versions
 #RUN apt-get update && apt-get install -y \
 #        libsdl1.2debian \
@@ -25,8 +8,8 @@ Pin-Priority: 900\n\
 
 # Install the required packages using Python 3 versions
 RUN apt-get update && apt-get install -y \
-        libsdl1.2debian \
-        python3-pip
+        libsdl2-dev libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev \
+        python3-pip libfreetype6-dev libjpeg-dev libportmidi-dev
 
 # Setup the container environment
 RUN mkdir -p /usr/src/app

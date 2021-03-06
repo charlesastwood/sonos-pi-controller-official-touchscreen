@@ -2,6 +2,7 @@ import pygame
 
 from view import View
 
+
 class ImageView(View):
     """A view for displaying an image.
     The only 'content scaling mode' currently supported is 'scale-to-fill'.
@@ -38,7 +39,7 @@ class ImageView(View):
         self.layout()
 
     def layout(self):
-        self._image.surface = pygame.transform.smoothscale(self._image.surface, self.frame.size).convert()        
+        self._image.surface = pygame.transform.smoothscale(self._image.surface, self.frame.size).convert()
 
     def draw(self):
         self.surface = self._image.surface

@@ -12,7 +12,7 @@ class Backlight:
     def on():
         if not Backlight.enabled:            
             with open(BACKLIGHT_CONTROL, 'w') as file:
-                file.write('1')
+                file.write('255')
             Backlight.enabled = True
             
     @staticmethod
@@ -21,4 +21,3 @@ class Backlight:
             with open(BACKLIGHT_CONTROL, 'w') as file:
                 file.write('0')
             Backlight.enabled = False
-        

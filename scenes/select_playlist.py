@@ -16,22 +16,22 @@ class SelectPlaylist(NavigationScene):
         NavigationScene.__init__(self, "Playlists")
 
         self.sonos = sonos
-        self.background_color = colors.NAVY        
+        self.background_color = colors.NAVY
 
         if playlists == None:
             playlists = Sonos.playlists()
         self.playlists = playlists
         self.playlist_titles = []
         for playlist in self.playlists:
-            self.playlist_titles.append(playlist.title)       
+            self.playlist_titles.append(playlist.title)
 
-        # Add list of playlists
-        self.playlist_list_view = ListView(Rect(0,80,Window.frame.width, Window.frame.height - 80),self.playlist_titles)
+            # Add list of playlists
+        self.playlist_list_view = ListView(Rect(0, 80, Window.frame.width, Window.frame.height - 80),
+                                           self.playlist_titles)
         self.playlist_list_view.on_selected.connect(self.playlist_selected)
         self.add_child(self.playlist_list_view)
 
-        
     def playlist_selected(self, list_view, title, index):
-         # Browse the tracks for this playlist        
-        scene = SelectTrack(self.sonos,title,Sonos.browse(self.playlists[index]), self.playlists[index])
+        # Browse the tracks for this playlist
+        scene = SelectTrack(self.sonos, title, Sonos.browse(self.playlists[index]), self.playlists[index])
         self.add_child(scene)

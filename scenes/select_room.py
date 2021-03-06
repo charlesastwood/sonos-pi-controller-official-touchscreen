@@ -23,11 +23,11 @@ class SelectRoom(ModalScene):
         self.remove()
 
     def generate_room_list(self):
-        ''' Generates a list of rooms/zones
+        """ Generates a list of rooms/zones
 
         If a room is a zone coordinator and has members in its group,
         it will be displayed first with all its members appended to it
-        with commas'''
+        with commas"""
         y = 80
         for zone in Sonos.get_zone_groups():
             if zone["is_coordinator"]:
@@ -38,4 +38,3 @@ class SelectRoom(ModalScene):
                 room_button.on_tapped.connect(self.change_room)
                 self.add_child(room_button)
                 y += 60
-          
