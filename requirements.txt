@@ -1,2 +1,4 @@
 pygame
 soco
+python-decouple
+rpi-backlight

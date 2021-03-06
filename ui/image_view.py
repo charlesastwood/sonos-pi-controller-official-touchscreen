@@ -1,6 +1,6 @@
 import pygame
 
-from view import View
+from . view import View
 
 
 class ImageView(View):

@@ -1,11 +1,11 @@
-import os
+from decouple import config
 from signal import signal, SIGINT, SIGTERM
 import sys
 from time import sleep
 from threading import Timer
 
 import pygame
-from pygame.locals import MOUSEBUTTONUP
+from pygame.locals import MOUSEBUTTONUP, FINGERUP
 
 from sonos import Sonos
 
@@ -42,7 +42,7 @@ sonos = Sonos()
 now_playing = NowPlaying(sonos)
 Window.scene = now_playing
 
-BACKLIGHT_TIMEOUT = int(os.getenv('BACKLIGHT_TIMEOUT'))
+BACKLIGHT_TIMEOUT = int(config('BACKLIGHT_TIMEOUT'))
 backlight_timer = Timer(BACKLIGHT_TIMEOUT, Backlight.off)
 backlight_timer.start()
 
@@ -65,7 +65,7 @@ def wake_up_display():
     """ Turn display on and prevent accidental touch by disabling touch for 0.5 seconds """
     global touch_enabled
     Backlight.on()
-    touch_enabled = False
+    touch_enabled = True
     timer = Timer(0.5, enable_touch)
     timer.start()
 
@@ -76,19 +76,21 @@ while True:
     for event in pygame.event.get():
         mouse_position = pygame.mouse.get_pos()
 
-        # print ""
-        # print ("Tap on window at: {}".format(mouse_position))               
-
         if Backlight.enabled:
             if touch_enabled:
-                # Cancel the timer any time the screen is touched        
+                # Cancel the timer any time the screen is touched
                 backlight_timer.cancel()
                 # Process touch events
                 hit_view = Window.scene.hit(mouse_position)
-                if event.type is MOUSEBUTTONUP:
+                if event.type == MOUSEBUTTONUP:
                     start_backlight_timer()
                     if hit_view is not None and hit_view is not Window.scene:
                         hit_view.mouse_up(event.button, mouse_position)
+                if event.type == FINGERUP:
+                    start_backlight_timer()
+                    print(hit_view)
+                    if hit_view is not None and hit_view is not Window.scene:
+                        hit_view.finger_up(hit_view, mouse_position)
         else:
             # Turn the backlight on if the screen has been touched
             wake_up_display()

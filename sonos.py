@@ -2,8 +2,7 @@
 import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
-import os
-from time import sleep
+from decouple import config
 
 import soco
 from soco.events import event_listener
@@ -11,7 +10,7 @@ from soco.data_structures import to_didl_string
 
 from threading import Thread
 
-CURRENT_ZONE_FILE = os.getenv('CURRENT_ZONE_FILE')
+CURRENT_ZONE_FILE = config('CURRENT_ZONE_FILE')
 
 
 class Sonos(object):

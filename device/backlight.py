@@ -1,23 +1,25 @@
-import os
+from decouple import config
+from rpi_backlight import Backlight
 
-BACKLIGHT_CONTROL = os.getenv('BACKLIGHT_CONTROL')
+BACKLIGHT_CONTROL = config('BACKLIGHT_CONTROL')
+
 
 class Backlight:
     """Static Class for controlling device backlight"""
+    backlight = Backlight()
+
     # Get the current state
-    with open(BACKLIGHT_CONTROL) as file:
-        enabled = bool(int(file.read()))
+    # with open(BACKLIGHT_CONTROL) as file:
+    enabled = backlight.power
 
     @staticmethod
     def on():
-        if not Backlight.enabled:            
-            with open(BACKLIGHT_CONTROL, 'w') as file:
-                file.write('255')
-            Backlight.enabled = True
-            
+        backlight = Backlight()
+        if not Backlight.enabled:
+            backlight.power = True
+
     @staticmethod
     def off():
-        if Backlight.enabled:            
-            with open(BACKLIGHT_CONTROL, 'w') as file:
-                file.write('0')
-            Backlight.enabled = False
+        backlight = Backlight()
+        if Backlight.enabled:
+            backlight.power = False

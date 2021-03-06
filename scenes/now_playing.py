@@ -22,7 +22,7 @@ class NowPlaying(Scene):
         self.sonos = sonos
         self.firstLoad = True
 
-        ########## SETUP UI ##########
+        # SETUP UI
 
         self.background_color = colors.NAVY
 
@@ -45,17 +45,17 @@ class NowPlaying(Scene):
         # Album Art
         self.empty_album_image = Image('empty_album', filename='empty_album_art.png')
         self.tv_album_image = Image('tv_album_art', filename='tv_album_art.png')
-        self.album_art_view = ImageView(Rect(80, 72, 160, 160), self.empty_album_image)
+        self.album_art_view = ImageView(Rect(400, 40, 360, 360), self.empty_album_image)
         self.add_child(self.album_art_view)
 
         # Track Title   
-        self.track_label = Label(Rect(20, 256, 280, 30), "", 36, colors.WHITE)
+        self.track_label = Label(Rect(20, 256, 320, 30), "", 36, colors.WHITE)
         self.add_child(self.track_label)
         # Artist
-        self.artist_label = Label(Rect(20, 296, 280, 20), "", 24, colors.GRAY)
+        self.artist_label = Label(Rect(20, 296, 320, 20), "", 24, colors.GRAY)
         self.add_child(self.artist_label)
         # Album
-        self.album_label = Label(Rect(20, 321, 280, 20), "", 24, colors.GRAY)
+        self.album_label = Label(Rect(20, 321, 320, 20), "", 24, colors.GRAY)
         self.add_child(self.album_label)
 
         ##### Play Button #####

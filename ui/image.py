@@ -1,11 +1,11 @@
-import os
+from decouple import config
 import io
-from urllib2 import urlopen
+from urllib.request import urlopen
 
 import pygame
 
 # Environment Vars
-IMAGE_FOLDER_PATH = os.getenv('IMAGE_FOLDER_PATH')
+IMAGE_FOLDER_PATH = config('IMAGE_FOLDER_PATH')
 
 
 class Image:

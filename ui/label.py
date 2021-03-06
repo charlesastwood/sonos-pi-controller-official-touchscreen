@@ -1,7 +1,7 @@
 import pygame
 from pygame.font import Font
 
-from view import View
+from . view import View
 import ui.colors as colors
 
 

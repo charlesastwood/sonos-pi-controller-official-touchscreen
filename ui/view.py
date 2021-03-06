@@ -1,5 +1,5 @@
 import pygame
-from callback_signal import Signal
+from . callback_signal import Signal
 
 
 class View(object):
@@ -20,6 +20,7 @@ class View(object):
         self.background_color = None
 
         self.on_mouse_up = Signal()
+        self.on_finger_up = Signal()
         self.on_parented = Signal()
 
     @property
@@ -105,6 +106,10 @@ class View(object):
     def mouse_up(self, button, point):
         # print "Mouse up on point: {}".format(point)
         self.on_mouse_up(self, button, point)
+
+    def finger_up(self, button, point):
+        # print "Mouse up on point: {}".format(point)
+        self.on_finger_up(self, button, point)
 
     def hit(self, point):
         """Find the view under point given, if any."""

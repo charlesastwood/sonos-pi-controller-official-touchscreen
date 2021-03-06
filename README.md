@@ -6,6 +6,11 @@ This controller relies upon the [SoCo library](https://github.com/SoCo/SoCo) for
 ![Now Playing](./resources/screenshots/sonospi.gif)
 ![Raspberry Pi Controller mounted to wall](./resources/screenshots/controller-mounted.jpg)
 
+## No Docker
+sudo apt install libsdl2-dev
+sudo apt-get install python3-sdl2
+echo 'SUBSYSTEM=="backlight",RUN+="/bin/chmod 666 /sys/class/backlight/%k/brightness /sys/class/backlight/%k/bl_power"' | sudo tee -a /etc/udev/rules.d/backlight-permissions.rules
+
 ## Features
 The sonos-pi-controller includes the following features:
 

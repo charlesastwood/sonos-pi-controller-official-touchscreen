@@ -1,5 +1,5 @@
-from view import View
-from window import Window
+from . view import View
+from . window import Window
 
 
 class Scene(View):

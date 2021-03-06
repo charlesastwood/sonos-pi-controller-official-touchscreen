@@ -1,8 +1,8 @@
 import pygame
 
-from view import View
-from label import Label
-from callback_signal import Signal
+from . view import View
+from . label import Label
+from . callback_signal import Signal
 import ui.colors as colors
 
 
@@ -71,4 +71,7 @@ class Button(View):
             self.surface = self.label.surface
 
     def mouse_up(self, button, point):
+        self.on_tapped(self)
+
+    def finger_up(self, button, point):
         self.on_tapped(self)
