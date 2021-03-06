@@ -26,8 +26,7 @@ Pin-Priority: 900\n\
 # Install the required packages using Python 3 versions
 RUN apt-get update && apt-get install -y \
         libsdl1.2debian \
-        python3-pip \
-        python3-pygame
+        python3-pip
 
 # Setup the container environment
 RUN mkdir -p /usr/src/app
