@@ -88,7 +88,6 @@ while True:
                         hit_view.mouse_up(event.button, mouse_position)
                 if event.type == FINGERUP:
                     start_backlight_timer()
-                    print(hit_view)
                     if hit_view is not None and hit_view is not Window.scene:
                         hit_view.finger_up(hit_view, mouse_position)
         else:

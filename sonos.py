@@ -317,7 +317,8 @@ class Sonos(object):
                 "members": sorted(unique_members)  # Get sorted list from set
             })
 
-        return sorted(zones)
+        return zones
+        # return sorted(zones)
 
     # Private Methods
 
