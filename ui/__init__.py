@@ -7,7 +7,7 @@ from window import Window
 
 def init():
     # setup window
-    Window.frame = pygame.Rect(0,0,320,480)    
+    Window.frame = pygame.Rect(0,0,800,480)
 
     ####################
     # this section is an unbelievable nasty hack - for some reason Pygame

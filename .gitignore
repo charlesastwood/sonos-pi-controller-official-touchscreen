@@ -2,3 +2,5 @@
 *.code-workspace
 *.pyc
 current_zone.sonos
+venv
+.idea

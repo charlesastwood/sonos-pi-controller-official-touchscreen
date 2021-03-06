@@ -12,9 +12,9 @@ services:
     env_file: .env
     volumes:
       - sonos-pi-controller:/usr/src/app
-      - '/sys/class/backlight:/sys/class/backlight'
+      - '/sys/class/backlight/rpi_backlight/brightness:/sys/class/backlight/rpi_backlight/brightness'
       - '/etc/pointercal:/etc/pointercal'
-      - '/etc/ts.conf:/etc/ts.conf'
+#      - '/etc/ts.conf:/etc/ts.conf'
     devices:
-      - "/dev/fb1:/dev/fb1"
+      - "/dev/fb0:/dev/fb0"
       - "/dev/input/event0:/dev/input/event0"
